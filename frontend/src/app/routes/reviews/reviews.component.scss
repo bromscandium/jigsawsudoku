@@ -1,0 +1,285 @@
+@use '../../../styles/variables' as *;
+
+.reviews-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 950px;
+    height: 880px;
+    padding: 40px;
+    border-radius: $border-radius;
+    background-color: $background-light;
+    box-shadow: $shadow;
+    color: $text-light;
+    opacity: 0;
+    transition: all $time-animation ease;
+    z-index: 10;
+
+    &.show {
+        opacity: 1;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+        color: $text-light;
+    }
+
+    .your-review {
+        .button-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px;
+            gap: 12px;
+
+            button {
+                min-width: 150px;
+                padding: 10px 24px;
+            }
+        }
+
+        .edit-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            width: 100%;
+
+            .rating-select {
+                display: flex;
+                box-shadow: $shadow;
+                border-radius: $border-radius;
+
+                button {
+                    min-width: 40px !important;
+                    max-width: 40px !important;
+                    width: 36px;
+                    height: 36px;
+                    font-size: 16px;
+                    border-radius: 0;
+                    background-color: $background-light;
+                    box-shadow: none;
+                    color: $text-light;
+                    font-weight: bold;
+                    cursor: pointer;
+                    transition: all $time-animation ease;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &:first-child {
+                        border-radius: $border-radius 0 0 $border-radius;
+                    }
+
+                    &:last-child {
+                        border-radius: 0 $border-radius $border-radius 0;
+                    }
+
+                    &.selected {
+                        background: linear-gradient(145deg, $yellow, $yellow-background);
+                    }
+                }
+            }
+
+            button {
+                min-width: 150px;
+                padding: 10px 24px;
+            }
+        }
+
+        .review-card.edit-version {
+            padding: 24px;
+            border: 1px solid $text-accent;
+            background-color: $background-light;
+            border-radius: $border-radius;
+            display: flex;
+            flex-direction: column;
+
+            &.focused {
+                border: 1px solid $yellow;
+            }
+
+            .edit-form {
+                display: flex;
+                flex-direction: column;
+                max-height: 150px;
+
+                textarea {
+                    all: unset;
+                    font-size: 18px;
+                    font-family: inherit;
+                    color: $text-light;
+                    min-height: 150px;
+                    max-height: 150px;
+                    resize: none;
+                    line-height: 1.2;
+                    overflow: hidden;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .all-comments{
+        min-height: 480px;
+    }
+
+    .review-card {
+        max-height: 150px;
+        overflow-y: visible;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 24px;
+        border-radius: $border-radius;
+        background-color: $background-light;
+        box-shadow: $shadow;
+        margin-bottom: 10px;
+        transition: all $time-animation ease;
+
+        &.personal {
+            background-color: $background-light;
+
+            .footer {
+                padding-top: 10px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                border-top: #9f9f9f solid 1px !important;
+            }
+        }
+
+        .header,
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all $time-animation ease;
+        }
+
+        .header {
+            font-size: 18px;
+
+            .score {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(145deg, $yellow, $yellow-background);
+                font-weight: 700;
+                font-size: 20px;
+                padding: 6px 12px;
+                border-radius: $border-radius;
+                min-width: 40px;
+            }
+        }
+
+        .footer {
+            border-top: $text-accent solid 1px;
+            padding-top: 10px;
+            justify-content: flex-end;
+        }
+
+        .comment {
+            position: relative;
+            line-height: 1.2;
+            font-size: 18px;
+            padding: 5px 0 5px 15px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 0;
+                height: 0;
+                border-top: 6px solid transparent;
+                border-bottom: 6px solid transparent;
+                border-left: 10px solid $text-light;
+            }
+        }
+    }
+
+    .review-sort {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        box-shadow: $shadow;
+        border-radius: 8px;
+        margin-bottom: 10px;
+
+        button {
+            flex: 1;
+            min-width: 100px;
+            padding: 20px 10px;
+            font-weight: 700;
+            font-size: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border-radius: 0;
+            box-shadow: none;
+
+            &.first {
+                border-radius: 8px 0 0 8px;
+            }
+
+            &.last {
+                border-radius: 0 8px 8px 0;
+            }
+        }
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin: 5px 0 10px;
+        height: 50px;
+
+        button {
+            width: 40px;
+            height: 40px;
+            font-size: 40px;
+            font-weight: bold;
+            color: $text-light;
+            background-color: transparent !important;
+            border: none;
+            box-shadow: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all $time-animation ease;
+
+            &:disabled {
+                color: $text-accent !important;
+                cursor: not-allowed;
+            }
+        }
+
+        span {
+            min-width: 40px;
+            height: 40px;
+            font-size: 40px;
+            font-weight: bold;
+            color: $text-light;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+    }
+}

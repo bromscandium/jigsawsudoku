@@ -1,0 +1,20 @@
+<div class="auth-container">
+    <div class="welcome-message">
+        <h1>{{ 'REGISTER.TITLE' | translate }}</h1>
+        <p>{{ 'REGISTER.DESCRIPTION' | translate }}</p>
+    </div>
+    <div class="form-container">
+        <h2>{{ 'REGISTER.SIGN_UP' | translate }}</h2>
+
+        <input type="text" [(ngModel)]="nickname" [placeholder]="'REGISTER.PLACEHOLDER.NICKNAME' | translate"
+               maxlength="12"/>
+        <input type="text" [(ngModel)]="login" [placeholder]="'REGISTER.PLACEHOLDER.LOGIN' | translate" maxlength="30"/>
+        <input type="password" [(ngModel)]="password" [placeholder]="'REGISTER.PLACEHOLDER.PASSWORD' | translate"
+               id="password" maxlength="30"/>
+
+        <button (click)="onRegister()">{{ 'REGISTER.BUTTON' | translate }}</button>
+
+        <p class="redirect">{{ 'REGISTER.REDIRECT' | translate }} <a
+            (click)="onRedirect()">{{ 'REGISTER.SIGN_IN_LINK' | translate }}</a></p>
+    </div>
+</div>

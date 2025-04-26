@@ -1,0 +1,35 @@
+<div class="game-board-container">
+    <div class="controls">
+        <h3>{{ formatTime(timeElapsed) }}</h3>
+        <h3>{{ 'GAME.ATTEMPTS' | translate }}: {{ attemptsLeft }}</h3>
+    </div>
+
+    <div
+        class="grid"
+        *ngIf="board"
+        [style.gridTemplateColumns]="'repeat(' + board.size + ', 1fr)'"
+    >
+        <ng-container *ngFor="let row of board.cells; let i = index">
+            <ng-container *ngFor="let cell of row; let j = index">
+                <div
+                    class="cell"
+                    [ngStyle]="{ 'background-color': getColor(board.regionMap[i][j]) }"
+                >
+                    <span *ngIf="cell.fixed">{{ cell.value }}</span>
+                    <input
+                        *ngIf="!cell.fixed"
+                        type="text"
+                        [value]="cell.value || ''"
+                        (input)="onValueChange($event, i, j)"
+                        maxlength="1"
+                        pattern="[0-9]"
+                        (input)="validateInput($event)"
+                        style="ime-mode: disabled;"
+                    />
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+
+</div>
+<app-back-button></app-back-button>

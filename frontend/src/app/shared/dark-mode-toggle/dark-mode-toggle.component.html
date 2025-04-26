@@ -1,0 +1,14 @@
+<label class="dark-mode-toggle-container toggle-button">
+    <input type="checkbox" [checked]="isDarkMode" (change)="toggleDarkMode()"/>
+    <span class="slider">
+    <span class="icon">
+      <ng-container *ngIf="!isDarkMode">
+        <img ngSrc="../../../assets/svg/sun.svg" alt="Light" height="32" width="32"/>
+      </ng-container>
+      <ng-container *ngIf="isDarkMode">
+        <img ngSrc="../../../assets/svg/moon.svg" alt="Dark" height="28" width="28"/>
+      </ng-container>
+    </span>
+    <div class="thumb"></div>
+  </span>
+</label>

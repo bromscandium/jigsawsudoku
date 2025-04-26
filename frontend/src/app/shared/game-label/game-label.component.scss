@@ -1,0 +1,27 @@
+@use '../../../styles/variables' as *;
+
+.game-label-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 24px;
+
+    img {
+        width: 56px;
+        height: 56px;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+
+    h1 {
+        color: $text-light;
+        font-weight: bold;
+        margin: 0;
+        transition: color $time-animation ease;
+    }
+}

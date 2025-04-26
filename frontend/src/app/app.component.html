@@ -1,0 +1,11 @@
+<router-outlet></router-outlet>
+
+<app-game-label *ngIf="isLoggedIn"></app-game-label>
+
+<app-profile-widget *ngIf="isLoggedIn"></app-profile-widget>
+
+<app-settings-widget *ngIf="isLoggedIn"></app-settings-widget>
+
+<app-help-widget *ngIf="isLoggedIn"></app-help-widget>
+
+<app-notification></app-notification>

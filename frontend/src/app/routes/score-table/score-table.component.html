@@ -1,0 +1,52 @@
+<app-back-button></app-back-button>
+
+<div class="score-table-container">
+    <div class="score-header">
+        <h2>{{ 'SCORES.YOUR' | translate }}</h2>
+
+        <div class="score-row header">
+            <span class="top">{{ 'SCORES.TOP' | translate }}</span>
+            <div class="divider">⠀</div>
+            <span class="nickname">{{ 'SCORES.NICKNAME' | translate }}</span>
+            <span class="score">{{ 'SCORES.SCORE' | translate }}</span>
+            <span class="date">{{ 'SCORES.DATE' | translate }}</span>
+        </div>
+
+        <div class="score-row" [ngClass]="personalRowClass">
+            <span class="top">{{ personalPosition }}</span>
+            <div class="divider">⠀</div>
+            <span class="nickname">{{ nickname }}</span>
+            <span class="score">{{ personalScore }}</span>
+            <span class="date">{{ personalPlayedOn | date: 'HH:mm dd/MM/yyyy' }}</span>
+        </div>
+    </div>
+
+    <div class="score-list">
+        <h2>{{ 'SCORES.TITLE' | translate }}</h2>
+
+        <div class="score-row header">
+            <span class="top">{{ 'SCORES.TOP' | translate }}</span>
+            <div class="divider">⠀</div>
+            <span class="nickname">{{ 'SCORES.NICKNAME' | translate }}</span>
+            <span class="score">{{ 'SCORES.SCORE' | translate }}</span>
+            <span class="date">{{ 'SCORES.DATE' | translate }}</span>
+        </div>
+
+        <div
+            class="score-row"
+            *ngFor="let score of scores; let i = index"
+            [ngClass]="{
+        highlight: score.player === nickname,
+        gold: i === 0,
+        silver: i === 1,
+        bronze: i === 2
+      }"
+        >
+            <span class="top">{{ i + 1 }}</span>
+            <div class="divider">⠀</div>
+            <span class="nickname">{{ score.player }}</span>
+            <span class="score">{{ score.points }}</span>
+            <span class="date">{{ score.playedOn | date: 'HH:mm dd/MM/yyyy' }}</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="reviews-container">
+    <section class="review-sort">
+        <button class="first" (click)="sort('best')">{{ 'REVIEWS.BEST' | translate }}</button>
+        <button (click)="sort('worst')">{{ 'REVIEWS.WORST' | translate }}</button>
+        <button (click)="sort('oldest')">{{ 'REVIEWS.OLDEST' | translate }}</button>
+        <button class="last" (click)="sort('newest')">{{ 'REVIEWS.NEWEST' | translate }}</button>
+    </section>
+
+    <section class="all-comments">
+        <div *ngFor="let review of paginatedReviews()" class="review-card">
+            <div class="header">
+                <strong>{{ review.player }}</strong>
+                <span class="score">{{ review.rating }}</span>
+            </div>
+            <p class="comment">{{ review.comment }}</p>
+            <div class="footer">
+                <span>{{ review.commentedOn | date: 'HH:mm dd/MM/yyyy' }}</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="pagination" *ngIf="allComments.length > 0">
+        <button (click)="prevPage()">&#60;</button>
+        <span>{{ page + 1 }}</span>
+        <button (click)="nextPage()">&#62;</button>
+    </section>
+
+    <section class="your-review">
+        <div *ngIf="!editing">
+            <div *ngIf="personalComment != ''; else noReview" class="review-card personal">
+                <div class="header">
+                    <strong>{{ 'REVIEWS.YOU' | translate }}</strong>
+                    <span class="score">{{ personalRating }}</span>
+                </div>
+                <p class="comment">{{ personalComment }}</p>
+                <div class="footer">
+                    <span>{{ personalDate | date: 'HH:mm dd/MM/yyyy' }}</span>
+                </div>
+            </div>
+
+            <ng-template #noReview>
+                <div class="review-card personal empty">
+                    <div class="header">
+                        <strong>{{ 'REVIEWS.YOU' | translate }}</strong>
+                        <span class="score">0</span>
+                    </div>
+                    <p class="comment muted">{{ 'REVIEWS.NO_REVIEW' | translate }}</p>
+                    <div class="footer">
+                        <span>{{ 'REVIEWS.NO_DATE' | translate }}</span>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+
+        <div *ngIf="editing" class="review-card edit-version" [class.focused]="isFocused">
+            <div class="edit-form">
+        <textarea [(ngModel)]="personalComment"
+                  placeholder="{{ 'REVIEWS.UPDATE_COMMENT' | translate }}"
+                  maxlength="100"
+                  (focus)="isFocused = true"
+                  (blur)="isFocused = false"></textarea>
+            </div>
+        </div>
+
+        <div *ngIf="editing" class="edit-wrapper">
+            <div class="rating-select">
+                <button *ngFor="let r of [1,2,3,4,5]"
+                        [class.selected]="r === personalRating"
+                        (click)="onRatingChange(r)">
+                    {{ r }}
+                </button>
+            </div>
+            <button (click)="saveReview()">{{ 'REVIEWS.SAVE' | translate }}</button>
+        </div>
+
+        <div *ngIf="!editing" class="button-wrapper">
+            <button (click)="deleteReview(commentIdent, ratingIdent)">{{ 'REVIEWS.DELETE' | translate }}</button>
+            <button (click)="toggleEdit()">{{ 'REVIEWS.EDIT' | translate }}</button>
+        </div>
+    </section>
+</div>
+
+<app-back-button></app-back-button>

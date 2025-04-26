@@ -1,0 +1,37 @@
+@use '../../../styles/variables' as *;
+
+.settings-widget-container {
+    position: fixed;
+    bottom: 120px;
+    right: 30px;
+    display: inline-block;
+    z-index: 1000;
+
+    .settings-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        background-color: #fdbd43;
+        width: 350px;
+        height: 80px;
+        border-radius: $border-radius;
+        box-shadow: $shadow;
+        opacity: 0;
+        visibility: hidden;
+        transform: translate(120px, -80px);
+        transition: all $time-animation ease;
+    }
+
+    &:hover {
+        .settings-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-270px, -80px);
+        }
+
+        .icon-widget {
+            box-shadow: none !important;
+        }
+    }
+}

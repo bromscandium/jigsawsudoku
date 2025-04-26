@@ -1,0 +1,33 @@
+<label class="language-toggle-container toggle-button">
+    <input
+        type="checkbox"
+        [checked]="currentLang === 'uk'"
+        (change)="toggleLanguage()"
+        aria-label="Toggle language"
+    />
+
+    <span class="slider">
+    <span class="icon">
+      <ng-container *ngIf="currentLang === 'en'">
+        <img
+            ngSrc="../../../assets/svg/en.svg"
+            alt="EN"
+            width="32"
+            height="32"
+            class="lang-icon"
+        />
+      </ng-container>
+      <ng-container *ngIf="currentLang === 'uk'">
+        <img
+            ngSrc="../../../assets/svg/uk.svg"
+            alt="UA"
+            width="32"
+            height="32"
+            class="lang-icon"
+        />
+      </ng-container>
+    </span>
+
+    <div class="thumb"></div>
+  </span>
+</label>

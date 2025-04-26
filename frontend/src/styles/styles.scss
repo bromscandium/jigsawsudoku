@@ -1,0 +1,374 @@
+@use 'variables' as *;
+@use './animations' as *;
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter/Inter-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter/Inter-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter/Inter-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter/Inter-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter/Inter-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter/Inter-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter/Inter-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter/Inter-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./fonts/Inter/Inter-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+h1 {
+    font-size: $h1-font-size;
+}
+
+h2 {
+    font-size: $h2-font-size;
+}
+
+h3 {
+    font-size: $h3-font-size;
+}
+
+h4 {
+    font-size: $h4-font-size;
+}
+
+h5 {
+    font-size: $h5-font-size;
+}
+
+h6 {
+    font-size: $h6-font-size;
+}
+
+p {
+    font-size: $p-font-size;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background: $main-bg-light;
+    background-size: 400% 400%;
+    animation: gradientShift $gradient-animation-duration linear infinite alternate;
+
+    h1, h2, h3, h4, h5, h6, p {
+        color: $text-light;
+    }
+
+    input, textarea {
+        font-size: 16px;
+        border: 1px solid #d5d5d5;
+        border-radius: $border-radius;
+        background-color: $background-light;
+        color: $text-light;
+        box-shadow: $shadow;
+        outline: none;
+    }
+
+    input:focus {
+        border: 1px solid $yellow-accent !important;
+    }
+
+    button {
+        font-weight: 500;
+        background-color: $yellow;
+        color: $text-light;
+        font-size: $button-font-size;
+        border: none;
+        border-radius: $border-radius;
+        box-shadow: $shadow;
+        cursor: pointer;
+        transition: all $time-animation ease;
+    }
+
+    button:hover {
+        background-color: $yellow-background;
+    }
+
+    .form-container,
+    .form-container.show {
+        background-color: $background-light;
+        border-radius: $border-radius;
+        box-shadow: $shadow;
+    }
+
+    .icon-widget {
+        user-select: none;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        width: 80px;
+        height: 80px;
+        background-color: $yellow;
+        border-radius: 50%;
+        box-shadow: $shadow;
+        transition: all $time-animation ease;
+    }
+}
+
+html.dark-mode body {
+    background: $main-bg-dark;
+    background-size: 400% 400%;
+    animation: gradientShift $gradient-animation-duration linear infinite alternate;
+
+    .animated-bg {
+        background: $main-bg-dark;
+        background-size: 400% 400%;
+    }
+
+    h1, h2, h3, h4, h5, h6, p,
+    .nickname, .rating,
+    .pagination span,
+    .score-row span {
+        color: $text-dark !important;
+    }
+
+    input,
+    textarea {
+        background-color: $panel-dark !important;
+        color: $text-dark !important;
+        border: 1px solid #676767 !important;
+    }
+
+    button {
+        background-color: $button-dark !important;
+        color: $text-dark !important;
+    }
+
+    button:hover {
+        background-color: $button-hover !important;
+    }
+
+    .average-rating {
+        background: linear-gradient(145deg, $panel-dark, $background-dark) !important;
+        border: 1px solid $yellow-accent !important;
+    }
+
+    .pre-game-setup-container,
+    .review-text,
+    .post-game-review-container,
+    .review-card,
+    .form-container,
+    .form-container.show,
+    .help-icon,
+    .icon-widget,
+    .settings-content,
+    .profile-content,
+    .reviews-container,
+    .help-content,
+    .notification-container {
+        background-color: $panel-dark !important;
+    }
+
+    .post-game-result-container {
+        .state.win {
+            color: #abff98 !important;
+        }
+
+        .state.lose {
+            color: #ff9898 !important;
+        }
+
+        .result {
+            background-color: rgba($panel-dark, 0.5) !important;
+            color: $text-dark;
+
+            .score {
+                &.win {
+                    background-color: #22933c !important;
+                }
+
+                &.lose {
+                    background-color: #9d1825 !important;
+                }
+            }
+        }
+    }
+
+    .pre-game-setup-container {
+        h3 {
+            &::before {
+                border-left: 10px solid $text-dark !important;
+            }
+        }
+
+        .options {
+            button {
+                &.selected {
+                    background: #c49d00 !important;
+                    border-color: #c49d00 !important;
+                }
+
+                &.hover {
+                    background: $panel-dark !important;
+                }
+            }
+        }
+    }
+
+    .review-card {
+        color: $text-dark !important;
+
+        .header {
+            span.score {
+                background: linear-gradient(145deg, #ecbc3c, #c48e14) !important;
+            }
+        }
+
+        .comment {
+            &::before {
+                border-left: 10px solid $text-dark !important;
+            }
+        }
+    }
+
+    .game-board-container {
+        .controls {
+            color: $text-dark !important;
+        }
+
+        .cell input {
+            border: none !important;
+            background: none !important;
+            color: $text-dark !important;
+
+            &:focus {
+                outline: none;
+                border: none !important;
+            }
+        }
+
+        .cell span {
+            color: $text-dark !important;
+        }
+    }
+
+    .review-wrapper,
+    .edit-wrapper {
+        .rating-select {
+            button {
+                background-color: $panel-dark !important;
+
+                &.selected {
+                    background: linear-gradient(145deg, #ecbc3c, #c48e14) !important;
+                }
+
+                &:hover {
+                    background-color: $panel-dark !important;
+                }
+            }
+        }
+    }
+
+    .review-text,
+    .review-card.edit-version {
+        .edit-form {
+            textarea {
+                border: none !important;
+                background: none !important;
+            }
+        }
+    }
+
+    .help-content h3::before {
+        border-left: 10px solid $text-dark !important;
+    }
+
+    .game-label-container h1 {
+        color: $text-dark !important;
+    }
+
+    .slider {
+        background-color: $button-dark !important;
+    }
+
+    input:checked + .slider {
+        background-color: $background-light !important;
+    }
+
+    .notification-container .message {
+        color: $text-dark !important;
+    }
+
+    .score-table-container {
+        background-color: $panel-dark !important;
+
+        .score-row {
+            &.highlight,
+            &.personal {
+                background-color: #9b8b64 !important;
+            }
+
+            &.gold,
+            &.personal.gold {
+                background-color: #c49d00 !important;
+            }
+
+            &.silver,
+            &.personal.silver {
+                background-color: #868686 !important;
+            }
+
+            &.bronze,
+            &.personal.bronze {
+                background-color: #945721 !important;
+            }
+        }
+    }
+}

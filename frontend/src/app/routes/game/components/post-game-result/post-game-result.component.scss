@@ -1,0 +1,117 @@
+@use '../../../../../styles/variables' as *;
+
+.post-game-result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+    justify-content: center;
+    min-height: 100vh;
+    opacity: 0;
+    transition: opacity $time-animation ease;
+
+    &.show {
+        opacity: 1;
+    }
+
+    .state {
+        font-weight: 700;
+        font-size: 54px;
+    }
+
+    .state.win {
+        color: #155724;
+    }
+
+    .state.lose {
+        color: #721c24;
+    }
+
+    .result {
+        width: 700px;
+        height: 340px;
+        padding: 40px;
+        background-color: rgba($background-light, 0.5);
+        border-radius: $border-radius;
+        box-shadow: $shadow;
+
+        .score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: $border-radius;
+            border: $text-accent 1px solid;
+            width: 220px;
+            height: 160px;
+            font-weight: 700;
+            margin: auto auto 30px;
+
+            &.win {
+                background-color: #abff98;
+            }
+
+            &.lose {
+                background-color: #ff9898;
+            }
+
+            .label {
+                font-size: 32px;
+            }
+
+            .value {
+                font-weight: 800;
+                font-size: 40px;
+            }
+        }
+
+        .add-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+            width: 100%;
+
+            .upper, .botton {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                font-weight: 700;
+            }
+
+            .upper {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .botton {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                font-size: 32px;
+            }
+
+            .time, .diff, .size {
+                text-align: center;
+                min-width: 33%;
+            }
+        }
+    }
+
+    .options {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        width: 700px;
+
+        button {
+            width: 100%;
+            font-size: 22px;
+            font-weight: 600;
+            min-width: 150px;
+            padding: 24px 48px;
+        }
+    }
+}

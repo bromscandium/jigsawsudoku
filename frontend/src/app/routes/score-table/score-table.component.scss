@@ -1,0 +1,113 @@
+@use '../../../styles/variables' as *;
+
+.score-table-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    padding: 40px;
+    height: 880px;
+    border-radius: $border-radius;
+    background-color: $background-light;
+    box-shadow: $shadow;
+    color: $text-light;
+    opacity: 0;
+    transition: opacity $time-animation ease;
+    z-index: 10;
+
+    &.show {
+        opacity: 1;
+    }
+
+    .score-header {
+        margin-bottom: 30px;
+    }
+
+    .score-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 18px;
+        height: 50px;
+        border-bottom: 1px solid $text-accent;
+
+        span {
+            flex: 1;
+            min-width: 28%;
+
+            &.top {
+                min-width: 10%;
+                padding-left: 5px;
+                text-align: center;
+            }
+
+            &.nickname {
+                min-width: 30%;
+                padding-left: 5px;
+            }
+
+            &.score {
+                min-width: 30%;
+                text-align: center;
+            }
+
+            &.date {
+                text-align: right;
+                padding-right: 20px;
+            }
+        }
+
+        .divider {
+            width: 1px;
+            height: 100%;
+            background-color: $text-accent;
+            margin: 0 12px;
+            align-self: stretch;
+            user-select: none;
+        }
+
+        &.header {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        &.personal {
+            font-weight: 600;
+            background-color: #f1d89d;
+
+            &.gold {
+                background-color: #ffe082;
+            }
+
+            &.silver {
+                background-color: #e0e0e0;
+            }
+
+            &.bronze {
+                background-color: #d7a36b;
+            }
+        }
+
+        &.highlight {
+            font-weight: 600;
+            background-color: #f1d89d;
+            box-shadow: $shadow;
+        }
+
+        &.gold {
+            font-weight: 600;
+            background-color: #ffe082;
+        }
+
+        &.silver {
+            font-weight: 600;
+            background-color: #e0e0e0;
+        }
+
+        &.bronze {
+            font-weight: 600;
+            background-color: #d7a36b;
+        }
+    }
+}

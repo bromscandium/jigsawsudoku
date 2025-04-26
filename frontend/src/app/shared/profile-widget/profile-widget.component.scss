@@ -1,0 +1,51 @@
+@use '../../../styles/variables' as *;
+
+.profile-widget-container {
+    position: fixed;
+    bottom: 210px;
+    right: 30px;
+    display: inline-block;
+    z-index: 1000;
+
+    .profile-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        background-color: #fdbd43;
+        width: 350px;
+        height: 80px;
+        border-radius: $border-radius;
+        box-shadow: $shadow;
+        opacity: 0;
+        visibility: hidden;
+        transform: translate(120px, -80px);
+        transition: all $time-animation ease;
+    }
+
+    &:hover {
+        .profile-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-270px, -80px);
+        }
+
+        .icon-widget {
+            box-shadow: none !important;
+        }
+    }
+
+    input {
+        width: 80%;
+        padding: 16px;
+    }
+
+    button {
+        width: 80%;
+        padding: 16px;
+    }
+
+    button:hover {
+        background-color: $yellow;
+    }
+}

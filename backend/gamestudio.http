@@ -1,0 +1,166 @@
+### POST Score
+POST http://localhost:8081/api/score
+Content-Type: application/json
+
+{
+  "game": "jigsawsudoku",
+  "player": "betatest",
+  "points": 100,
+  "playedOn": "2025-03-28T20:00:00"
+}
+
+###
+
+### POST Comment
+POST http://localhost:8081/api/comment
+Content-Type: application/json
+
+{
+  "game": "jigsawsudoku",
+  "player": "betatest",
+  "comment": "Cool game!",
+  "commentedon": "2025-03-28T20:01:00"
+}
+
+###
+
+### POST Rating
+POST http://localhost:8081/api/rating
+Content-Type: application/json
+
+{
+  "game": "jigsawsudoku",
+  "player": "betatest",
+  "rating": 5,
+  "ratedOn": "2025-03-28T20:02:00"
+}
+
+### POST Board Validation
+POST http://localhost:8081/api/game/validate
+Content-Type: application/json
+
+{
+  "size": 4,
+  "regionMap": [
+    [
+      1,
+      1,
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      2,
+      2
+    ],
+    [
+      3,
+      3,
+      4,
+      4
+    ],
+    [
+      3,
+      3,
+      4,
+      4
+    ]
+  ],
+  "cells": [
+    [
+      {
+        "value": 1,
+        "fixed": true
+      },
+      {
+        "value": 2,
+        "fixed": true
+      },
+      {
+        "value": 3,
+        "fixed": true
+      },
+      {
+        "value": 4,
+        "fixed": true
+      }
+    ],
+    [
+      {
+        "value": 3,
+        "fixed": true
+      },
+      {
+        "value": 4,
+        "fixed": true
+      },
+      {
+        "value": 1,
+        "fixed": true
+      },
+      {
+        "value": 2,
+        "fixed": true
+      }
+    ],
+    [
+      {
+        "value": 2,
+        "fixed": true
+      },
+      {
+        "value": 1,
+        "fixed": true
+      },
+      {
+        "value": 4,
+        "fixed": true
+      },
+      {
+        "value": 3,
+        "fixed": true
+      }
+    ],
+    [
+      {
+        "value": 4,
+        "fixed": true
+      },
+      {
+        "value": 3,
+        "fixed": true
+      },
+      {
+        "value": 2,
+        "fixed": true
+      },
+      {
+        "value": 1,
+        "fixed": true
+      }
+    ]
+  ]
+}
+
+### GET Board
+GET http://localhost:8081/api/game/generate?size=3&difficulty=EASY
+Accept: application/json
+
+###
+
+GET http://localhost:8081/api/score/jigsawsudoku
+
+###
+
+GET http://localhost:8081/api/comment/jigsawsudoku
+
+###
+
+GET http://localhost:8081/api/rating/jigsawsudoku/betatest
+
+###
+
+### GET Players
+
+GET http://localhost:8081/api/comment/players

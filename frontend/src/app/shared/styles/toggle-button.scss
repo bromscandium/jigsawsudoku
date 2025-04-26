@@ -1,0 +1,66 @@
+@use '../../../styles/variables' as *;
+
+.toggle-button {
+    position: fixed;
+    top: -2px;
+    z-index: 1000;
+    display: inline-block;
+    width: 100px;
+    height: 56px;
+    user-select: none;
+
+    input {
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+
+    .slider {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 14px;
+        box-sizing: border-box;
+        cursor: pointer;
+        background-color: $yellow;
+        border-radius: $border-radius;
+        box-shadow: $shadow;
+        transition: background-color $time-animation ease;
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            transform: translateX(50px);
+            transition: transform $time-animation ease;
+        }
+
+        .thumb {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 36px;
+            height: 36px;
+            border-radius: $border-radius;
+            background-color: $background-light;
+            transform: translateX(2px);
+            transition: transform $time-animation ease;
+        }
+    }
+
+    input:checked + .slider {
+        background-color: $background-light;
+
+        .icon {
+            transform: translateX(0);
+        }
+
+        .thumb {
+            transform: translateX(50px);
+            background-color: $background-dark;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+<label class="sound-toggle-container toggle-button">
+    <input
+        type="checkbox"
+        [checked]="isSoundOff"
+        (change)="toggleSound()"
+        aria-label="Toggle sound"
+    />
+    <span class="slider">
+    <span class="icon">
+      <ng-container *ngIf="isSoundOff">
+        <img ngSrc="../../../assets/svg/sound-off.svg" alt="OFF" height="32" width="32"/>
+      </ng-container>
+      <ng-container *ngIf="!isSoundOff">
+        <img ngSrc="../../../assets/svg/sound-on.svg" alt="ON" height="38" width="38"/>
+      </ng-container>
+    </span>
+
+    <div class="thumb"></div>
+  </span>
+</label>

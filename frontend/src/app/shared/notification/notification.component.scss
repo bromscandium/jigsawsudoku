@@ -1,0 +1,66 @@
+@use '../../../styles/variables' as *;
+
+.notification-container {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $background-light;
+    color: $text-light;
+    border-radius: $border-radius;
+    border: $text-accent 1px solid;
+    box-shadow: $shadow;
+    padding: 24px 36px;
+    min-width: 250px;
+    max-width: 400px;
+    text-align: left;
+    z-index: 1000;
+    animation: slide-up-down 7s ease forwards;
+
+    .icon-notification {
+        font-size: 24px;
+        margin-right: 2px;
+        vertical-align: middle;
+    }
+
+    .message {
+        font-size: 18px;
+    }
+
+    .progress-bar {
+        height: 8px;
+        margin-top: 16px;
+        transition: width 50ms linear;
+        background-color: $text-accent;
+    }
+
+    &.success {
+        border: #4caf50 1px solid;
+        .progress-bar {
+            background-color: #4caf50;
+        }
+    }
+
+    &.error {
+        border: #f44336 1px solid;
+        .progress-bar {
+            background-color: #f44336;
+        }
+    }
+}
+
+@keyframes slide-up-down {
+    0% {
+        transform: translate(-50%, 100px);
+        opacity: 0;
+    }
+    10%,
+    85% {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, 100px);
+        opacity: 0;
+    }
+}

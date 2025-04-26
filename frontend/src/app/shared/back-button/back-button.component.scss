@@ -1,0 +1,17 @@
+@use '../../../styles/variables' as *;
+
+.back-button {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    font-size: 26px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 22px 100px;
+    opacity: 0;
+    transition: all $time-animation ease;
+
+    &.show {
+        opacity: 1;
+    }
+}

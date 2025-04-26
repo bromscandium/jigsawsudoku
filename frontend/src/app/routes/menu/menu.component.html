@@ -1,0 +1,17 @@
+<div class="menu-container">
+    <div class="menu">
+        <h1 class="greeting-text">{{ 'GREETINGS.' + greeting | translate }}, {{ nickname }}!</h1>
+
+        <button class="play-button" (click)="play()">{{ 'MENU.PLAY' | translate }}</button>
+        <button class="new-game" *ngIf="hasSavedGame" (click)="newGame()">{{ 'MENU.NEW_GAME' | translate }}</button>
+        <button class="score-table-button" (click)="scoreTable()">{{ 'MENU.SCORE_TABLE' | translate }}</button>
+        <button class="reviews-button" (click)="reviews()">{{ 'MENU.REVIEWS' | translate }}</button>
+        <button class="exit-button" (click)="exit()">{{ 'MENU.LOGOUT' | translate }}</button>
+    </div>
+    <div class="average-rating" *ngIf="average !== null">
+        <h3>{{ 'REVIEWS.AVERAGE_RATING' | translate }}</h3>
+        <p class="value">{{ average | number: '1.1-1' }} / 5.0</p>
+    </div>
+</div>
+
+

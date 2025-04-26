@@ -1,0 +1,18 @@
+<div class="auth-container">
+    <div class="welcome-message">
+        <h1>{{ 'LOGIN.TITLE' | translate }}</h1>
+        <p>{{ 'LOGIN.DESCRIPTION' | translate }}</p>
+    </div>
+    <div class="form-container">
+        <h2>{{ 'LOGIN.SIGN_IN' | translate }}</h2>
+
+        <input type="text" [(ngModel)]="login" [placeholder]="'LOGIN.PLACEHOLDER.LOGIN' | translate" maxlength="30"/>
+        <input type="password" [(ngModel)]="password" [placeholder]="'LOGIN.PLACEHOLDER.PASSWORD' | translate"
+               id="password" maxlength="30"/>
+
+        <button (click)="onLogin()">{{ 'LOGIN.BUTTON' | translate }}</button>
+
+        <p class="redirect">{{ 'LOGIN.REDIRECT' | translate }} <a
+            (click)="onRedirect()">{{ 'LOGIN.SIGN_UP_LINK' | translate }}</a></p>
+    </div>
+</div>

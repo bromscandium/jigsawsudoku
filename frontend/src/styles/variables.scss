@@ -1,0 +1,44 @@
+// === LIGHT THEME ===
+$main-bg-light: linear-gradient(135deg,
+    rgba(255, 242, 174, 0.5),
+    rgba(246, 212, 166, 0.5),
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 242, 174, 0.5));
+$background-light: #fafafa;
+$text-light: #0f0c04;
+
+// === DARK THEME ===
+$main-bg-dark: linear-gradient(135deg,
+    rgb(30, 30, 30),
+    rgb(24, 24, 24),
+    rgb(10, 10, 10),
+    rgb(16, 16, 16));
+$background-dark: #0f0c04;
+$text-dark: #fcfcfc;
+$panel-dark: #252525;
+$button-dark: #1e1e1e;
+$button-hover: #181818;
+
+// === ACCENT COLORS ===
+$yellow: #ffc733;
+$yellow-accent: #ffcd69;
+$yellow-background: #e7a60e;
+
+// === GENERAL STYLES ===
+$border-radius: 20px;
+$shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+$text-accent: #8a8a8a;
+
+// === ANIMATIONS ===
+$time-animation: 0.4s;
+$gradient-animation-duration: 30s;
+
+// === FONT SIZES ===
+$h1-font-size: 48px;
+$h2-font-size: 34px;
+$h3-font-size: 28px;
+$h4-font-size: 24px;
+$h5-font-size: 22px;
+$h6-font-size: 20px;
+$p-font-size: 18px;
+$button-font-size: 17px;

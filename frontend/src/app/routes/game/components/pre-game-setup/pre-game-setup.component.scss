@@ -1,0 +1,108 @@
+@use '../../../../../styles/variables' as *;
+
+.pre-game-setup-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 700px;
+    padding: 24px;
+    background-color: $background-light;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: all $time-animation ease;
+    gap: 24px;
+
+    &.show {
+        opacity: 1;
+    }
+
+    .title {
+        margin-bottom: 12px;
+        font-size: 40px;
+        font-weight: 700;
+    }
+
+    .section {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .label-section {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 0 8px;
+            padding-left: 20px;
+
+            h3 {
+                position: relative;
+                padding-left: 24px;
+                display: inline-block;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 0;
+                    height: 0;
+                    border-top: 6px solid transparent;
+                    border-bottom: 6px solid transparent;
+                    border-left: 10px solid $text-light;
+                }
+            }
+        }
+
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 80px;
+                padding: 12px 28px;
+                font-size: 20px;
+                background-color: $background-light;
+                border: 1px solid $text-accent;
+                border-radius: $border-radius;
+                cursor: pointer;
+                transition: all $time-animation ease;
+                margin-bottom: 20px;
+
+                &.selected {
+                    background: $yellow;
+                    color: $text-light;
+                    border-color: $yellow;
+                }
+            }
+        }
+    }
+
+    .start-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+        padding: 12px 28px;
+        font-size: 22px;
+        border: none;
+        cursor: pointer;
+        transition: all $time-animation ease;
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+}

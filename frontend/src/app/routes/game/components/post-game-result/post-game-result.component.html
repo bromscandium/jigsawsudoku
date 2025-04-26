@@ -1,0 +1,35 @@
+<div *ngIf="save" class="post-game-result-container">
+    <h1 class="state" [ngClass]="state === 'RESULT.WIN' ? 'win' : 'lose'">{{ state | translate }}</h1>
+
+    <div class="result" [ngClass]="state === 'RESULT.WIN' ? 'win' : 'lose'">
+        <div class="score" *ngIf="score" [ngClass]="state === 'RESULT.WIN' ? 'win' : 'lose'">
+            <span class="label">{{ 'RESULT.SCORES' | translate }}</span>
+            <span class="value">{{ score }}</span>
+        </div>
+
+        <div class="add-info">
+            <div class="upper">
+                <span class="time">{{ 'RESULT.TIME' | translate }}</span>
+                <span class="size">{{ 'RESULT.SIZE' | translate }}</span>
+                <span class="diff">{{ 'RESULT.DIFFICULTY' | translate }}</span>
+            </div>
+
+            <div class="botton">
+                <span class="time">{{ formatTime(save.timeSeconds) }}</span>
+                <span class="size">{{ save.size }}×{{ save.size }}</span>
+                <span class="diff">{{ save.difficulty }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="review">
+        <app-post-game-review></app-post-game-review>
+    </div>
+
+    <div class="options">
+        <button class="back-button" (click)="goMenu()">{{ 'COMMON.BACK' | translate }}</button>
+        <button class="play-again" (click)="newGame()">{{ 'MENU.NEW_GAME' | translate }}</button>
+    </div>
+</div>
+
+

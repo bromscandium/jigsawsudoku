@@ -1,0 +1,29 @@
+<div class="profile-widget-container">
+    <div class="icon-widget">
+        <img
+            ngSrc="../../../assets/svg/profile.svg"
+            alt="SET"
+            width="40"
+            height="40"
+        />
+    </div>
+
+    <div class="profile-content">
+        <ng-container *ngIf="!editing; else editMode">
+            <button (click)="enableEditing()">
+                {{ 'PROFILE.NICKNAME' | translate }}
+            </button>
+        </ng-container>
+
+        <ng-template #editMode>
+            <input
+                id="nickname-input"
+                type="text"
+                [(ngModel)]="tempNickname"
+                (keydown)="handleKey($event)"
+                [placeholder]="'PROFILE.PLACEHOLDER' | translate"
+                maxlength="12"
+            />
+        </ng-template>
+    </div>
+</div>

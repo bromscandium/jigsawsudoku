@@ -1,0 +1,32 @@
+<section *ngIf="isShown" class="post-game-review-container">
+    <h3 class="label-container">
+        {{ 'REVIEWS.ASK_COMMENT' | translate }}
+    </h3>
+
+    <div class="review-text" [class.focused]="isFocused">
+        <div class="edit-form">
+      <textarea
+          [(ngModel)]="personalComment"
+          placeholder="{{ 'REVIEWS.UPDATE_COMMENT' | translate }}"
+          maxlength="100"
+          (focus)="isFocused = true"
+          (blur)="isFocused = false">
+      </textarea>
+        </div>
+    </div>
+
+    <div class="review-wrapper">
+        <div class="rating-select">
+            <button
+                *ngFor="let rating of [1, 2, 3, 4, 5]"
+                [class.selected]="rating === personalRating"
+                (click)="onRatingChange(rating)">
+                {{ rating }}
+            </button>
+        </div>
+
+        <button (click)="saveReview()">
+            {{ 'REVIEWS.SAVE' | translate }}
+        </button>
+    </div>
+</section>

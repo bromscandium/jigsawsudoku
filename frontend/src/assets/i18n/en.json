@@ -1,0 +1,132 @@
+{
+    "LOGIN": {
+        "TITLE": "Welcome to Jigsaw Sudoku",
+        "DESCRIPTION": "Please sign in to your account to play",
+        "SIGN_IN": "Sign In",
+        "PLACEHOLDER": {
+            "LOGIN": "Login",
+            "PASSWORD": "Password"
+        },
+        "BUTTON": "Login",
+        "REDIRECT": "Don't have an account?",
+        "SIGN_UP_LINK": "Sign Up"
+    },
+    "REGISTER": {
+        "TITLE": "Are you new here?",
+        "DESCRIPTION": "Then create a new account here and let's play together!",
+        "SIGN_UP": "Sign Up",
+        "PLACEHOLDER": {
+            "NICKNAME": "Nickname",
+            "LOGIN": "Login",
+            "PASSWORD": "Password"
+        },
+        "BUTTON": "Register",
+        "REDIRECT": "Already have an account?",
+        "SIGN_IN_LINK": "Sign in"
+    },
+    "MENU": {
+        "TITLE": "Jigsaw Sudoku",
+        "PLAY": "Play",
+        "NEW_GAME": "New game",
+        "SCORE_TABLE": "Top players",
+        "REVIEWS": "Reviews",
+        "LOGOUT": "Logout"
+    },
+    "SCORES": {
+        "TITLE": "Best Results",
+        "YOUR": "Your Result",
+        "NICKNAME": "Nickname",
+        "SCORE": "Score",
+        "DATE": "Date",
+        "TOP": "Place"
+    },
+    "REVIEWS": {
+        "YOUR_COMMENT": "Your Comment",
+        "EDIT": "Edit",
+        "ALL": "All Comments",
+        "BEST": "Top",
+        "WORST": "Worst",
+        "OLDEST": "Oldest",
+        "NEWEST": "Newest",
+        "AVERAGE_RATING": "Average Game Rating",
+        "SAVE": "Save",
+        "RATING": "Rating",
+        "UPDATE_COMMENT": "Update your comment",
+        "UPDATE_COMMENT_FAILED": "Failed to update comment",
+        "UPDATE_RATING_FAILED": "Failed to update rating",
+        "REVIEW_UPDATED": "Review updated!",
+        "REVIEW_DELETED": "Review deleted!",
+        "YOU": "YOU",
+        "NO_REVIEW": "No comment was left.",
+        "NO_DATE": "No date was set",
+        "ASK_COMMENT": "If you have something to say, you are welcome!",
+        "DELETE": "Delete",
+        "EMPTY_COMMENT": "Please, write a comment.",
+        "NOTHING_TO_DELETE": "There is nothing for deletion."
+    },
+    "SETUP": {
+        "BEGIN": "Start game",
+        "SIZE": "Field size",
+        "DIFFICULTY": "Difficulty",
+        "SETUP": "Game Setting before playing",
+        "EASY": "Easy",
+        "MEDIUM": "Medium",
+        "HARD": "Hard"
+    },
+    "GAME": {
+        "ATTEMPTS": "Attempts",
+        "MISTAKE": "Check your board twice"
+    },
+    "RESULT": {
+        "SCORES": "Scores",
+        "TIME": "Time",
+        "DIFFICULTY": "Difficulty",
+        "SIZE": "Size",
+        "WIN": "Congratulations! You won!",
+        "LOOSE": "Better luck next time!"
+    },
+    "PROFILE": {
+        "NICKNAME": "Change nickname",
+        "PLACEHOLDER": "Enter new nickname"
+    },
+    "HELP": {
+        "TITLE": "Jigsaw Sudoku Help",
+        "GAME_TITLE": "Game",
+        "GAME_DESC": "Solve Sudoku, with random regions, but you can change the difficulty and grid size. Remember: you can return at any time thanks to the auto-save!",
+        "REVIEWS_TITLE": "Reviews",
+        "REVIEWS_DESC": "Here you can read all reviews about the game before the game. It is kind of simple, but I appreciate your opinion!",
+        "SCORE_TITLE": "Score Table",
+        "SCORE_DESC": "See the points table and compete: points depend on difficulty, time, net size, and attempts.",
+        "SETTINGS_TITLE": "Settings",
+        "SETTINGS_DESC": "Above this help section you can find settings button. There are not many, but you can change mode, language and turn on/off sound.",
+        "PROFILE_TITLE": "Profile",
+        "PROFILE_DESC": "If you don't like your nickname, you can change it whenever you wish!",
+        "FOOTER": "Created by bromscandium, 2025"
+    },
+    "NOTIFICATIONS": {
+        "NICKNAME_UPDATED": "Nickname updated successfully!"
+    },
+    "ERRORS": {
+        "EMPTY_LOGIN": "Please, provide a login",
+        "EMPTY_PASSWORD": "Please, provide a password",
+        "EMPTY_NICKNAME": "Please, provide a nickname",
+        "WEAK_PASSWORD": "Please, provide a password with at least 8 characters",
+        "LOGIN_FAILED": "Login failed. Please try again",
+        "REGISTER_FAILED": "Registration failed. Please try again",
+        "NICKNAME_CHOSEN": "This nickname is already chosen",
+        "NICKNAME_UPDATE_FAILED": "Failed to update nickname",
+        "REGISTER": {
+            "CHOSEN_NICKNAME": "Nickname is already chosen",
+            "CHOSEN_LOGIN": "Login is already chosen"
+        }
+    },
+    "GREETINGS": {
+        "MORNING": "Good Morning",
+        "DAY": "Good Day",
+        "EVENING": "Good Evening",
+        "NIGHT": "Good Night"
+    },
+    "COMMON": {
+        "BACK": "Back"
+    }
+}

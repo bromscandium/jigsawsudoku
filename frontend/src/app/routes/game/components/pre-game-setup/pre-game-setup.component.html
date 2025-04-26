@@ -1,0 +1,42 @@
+<div class="pre-game-setup-container">
+    <h2 class="title">{{ 'SETUP.SETUP' | translate }}</h2>
+
+    <div class="section">
+        <div class="label-section">
+            <h3>{{ 'SETUP.DIFFICULTY' | translate }}</h3>
+        </div>
+        <div class="options">
+            <button
+                *ngFor="let diff of difficulties"
+                (click)="selectedDifficulty = diff"
+                [class.selected]="diff === selectedDifficulty"
+            >
+                {{ diff }}
+            </button>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="label-section">
+            <h3>{{ 'SETUP.SIZE' | translate }}</h3>
+        </div>
+        <div class="options">
+            <button
+                *ngFor="let s of sizes"
+                (click)="selectedSize = s"
+                [class.selected]="s === selectedSize"
+            >
+                {{ s }}×{{ s }}
+            </button>
+        </div>
+    </div>
+
+    <button
+        class="start-button"
+        [disabled]="!selectedSize || selectedDifficulty == ''"
+        (click)="startGame()"
+    >
+        {{ 'SETUP.BEGIN' | translate }}
+    </button>
+</div>
+<app-back-button></app-back-button>

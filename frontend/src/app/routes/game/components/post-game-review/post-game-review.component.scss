@@ -1,0 +1,114 @@
+@use '../../../../../styles/variables' as *;
+
+.post-game-review-container {
+    width: 700px;
+    max-height: 300px;
+    padding: 24px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-radius: $border-radius;
+    background-color: $background-light;
+    box-shadow: $shadow;
+    overflow-y: visible;
+    transition: all $time-animation ease;
+
+    h3 {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .review-text {
+        max-height: 120px;
+        padding: 24px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        border-radius: $border-radius;
+        background-color: $background-light;
+        box-shadow: $shadow;
+        border: 1px solid $text-accent;
+        overflow-y: visible;
+        transition: all $time-animation ease;
+
+        &.focused {
+            border-color: $yellow;
+        }
+
+        .edit-form {
+            max-height: 150px;
+            display: flex;
+            flex-direction: column;
+
+            textarea {
+                background: none;
+                border: none;
+                box-shadow: none;
+                font-family: inherit;
+                font-size: 18px;
+                color: $text-light;
+                line-height: 1.2;
+                min-height: 150px;
+                max-height: 150px;
+                resize: none;
+                overflow: hidden;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+
+    .review-wrapper {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+
+        .rating-select {
+            display: flex;
+            box-shadow: $shadow;
+            border-radius: $border-radius;
+
+            button {
+                width: 36px;
+                min-width: 40px !important;
+                max-width: 40px !important;
+                height: 36px;
+                font-size: 16px;
+                font-weight: bold;
+                color: $text-light;
+                background-color: $background-light;
+                border-radius: 0;
+                box-shadow: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all $time-animation ease;
+
+                &:first-child {
+                    border-radius: $border-radius 0 0 $border-radius;
+                }
+
+                &:last-child {
+                    border-radius: 0 $border-radius $border-radius 0;
+                }
+
+                &.selected {
+                    background: linear-gradient(145deg, $yellow, $yellow-background);
+                }
+            }
+        }
+    }
+
+    button {
+        min-width: 150px;
+        padding: 10px 24px;
+    }
+}
