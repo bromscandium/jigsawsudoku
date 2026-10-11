@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 public class CommentServiceRestClient implements CommentInterface {
-    Dotenv dotenv = Dotenv.configure().directory("../").load();
+    Dotenv dotenv = Dotenv.configure().directory("./").load();
     String url = dotenv.get("COMMENT_SERVICE_URL");
 
     @Autowired

@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 public class RatingServiceRestClient implements RatingInterface {
-    Dotenv dotenv = Dotenv.configure().directory("../").load();
+    Dotenv dotenv = Dotenv.configure().directory("./").load();
     String url = dotenv.get("RATING_SERVICE_URL");
 
     @Autowired

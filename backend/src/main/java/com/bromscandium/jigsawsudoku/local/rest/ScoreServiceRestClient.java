@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 public class ScoreServiceRestClient implements ScoreInterface {
-    Dotenv dotenv = Dotenv.configure().directory("../").load();
+    Dotenv dotenv = Dotenv.configure().directory("./").load();
     String url = dotenv.get("SCORE_SERVICE_URL");
 
     @Autowired
