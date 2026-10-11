@@ -9,7 +9,7 @@
 /tmp
 /out-tsc
 /bazel-out
-environment.ts
+frontend/src/environment/environment.ts
 node_modules
 npm-debug.log
 yarn-error.log
