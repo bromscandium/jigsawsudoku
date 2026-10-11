@@ -1,4 +1,5 @@
 @use '../../../styles/variables' as *;
+@use '../../../styles/breakpoints' as *;
 
 .score-table-container {
     position: fixed;
@@ -108,6 +109,45 @@
         &.bronze {
             font-weight: 600;
             background-color: #d7a36b;
+        }
+    }
+}
+
+@include compact {
+    .score-table-container {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: calc(100% - 32px);
+        max-width: 800px;
+        height: auto;
+        margin: $chrome-top auto $chrome-bottom;
+        padding: 24px;
+    }
+}
+
+@include below($bp-mobile) {
+    .score-table-container {
+        margin: $chrome-top-mobile auto $chrome-bottom-mobile;
+        padding: 16px 12px;
+
+        .score-header {
+            margin-bottom: 16px;
+        }
+
+        .score-row {
+            font-size: 13px;
+            height: auto;
+            min-height: 44px;
+
+            .divider {
+                margin: 0 4px;
+            }
+
+            span.date {
+                padding-right: 6px;
+            }
         }
     }
 }

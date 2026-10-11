@@ -1,4 +1,5 @@
 @use '../../../../../styles/variables' as *;
+@use '../../../../../styles/breakpoints' as *;
 
 .pre-game-setup-container {
     position: fixed;
@@ -103,6 +104,44 @@
         &:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+        }
+    }
+}
+
+@include compact {
+    .pre-game-setup-container {
+        max-height: calc(100vh - #{$chrome-top} - #{$chrome-bottom});
+        overflow-y: auto;
+    }
+}
+
+@include below($bp-mobile) {
+    .pre-game-setup-container {
+        top: calc(50% - 10px);
+        width: calc(100% - 32px);
+        max-height: calc(100vh - #{$chrome-top-mobile} - #{$chrome-bottom-mobile});
+        padding: 20px 16px;
+        gap: 12px;
+
+        .title {
+            font-size: 28px;
+            margin-bottom: 0;
+        }
+
+        .section .options {
+            flex-wrap: wrap;
+
+            button {
+                min-width: 0;
+                padding: 10px 16px;
+                font-size: 16px;
+                margin-bottom: 0;
+            }
+        }
+
+        .start-button {
+            height: 52px;
+            font-size: 18px;
         }
     }
 }

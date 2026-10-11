@@ -8,6 +8,7 @@
         class="grid"
         *ngIf="board"
         [style.gridTemplateColumns]="'repeat(' + board.size + ', 1fr)'"
+        [style.--board-size]="board.size"
     >
         <ng-container *ngFor="let row of board.cells; let i = index">
             <ng-container *ngFor="let cell of row; let j = index">

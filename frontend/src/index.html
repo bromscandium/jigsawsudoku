@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Jigsaw Sudoku</title>
     <base href="/"/>
     <link rel="icon" type="image/x-icon" href="./assets/ico/favicon.ico"/>
@@ -14,6 +15,14 @@
         } catch (e) {
             console.error('Theme load error:', e);
         }
+
+        // Layout changes at breakpoints would otherwise be animated by the `transition: all` rules.
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            document.documentElement.classList.add('resizing');
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => document.documentElement.classList.remove('resizing'), 200);
+        });
     </script>
 </head>
 <body>

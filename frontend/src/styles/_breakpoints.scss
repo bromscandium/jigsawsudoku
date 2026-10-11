@@ -1,0 +1,24 @@
+// === BREAKPOINTS ===
+$bp-wide: 1700px;   // menu + rating card no longer fit side by side
+$bp-tablet: 1024px;
+$bp-mobile: 600px;
+$bp-short: 960px;   // fixed-height panels (880px) no longer fit vertically
+
+@mixin below($width) {
+    @media (max-width: $width) {
+        @content;
+    }
+}
+
+// Screens where fixed, centred panels don't fit: switch them to normal scrolling flow.
+@mixin compact {
+    @media (max-width: $bp-tablet), (max-height: $bp-short) {
+        @content;
+    }
+}
+
+// Space kept free for the fixed game label (top) and back button / widgets (bottom).
+$chrome-top: 100px;
+$chrome-bottom: 120px;
+$chrome-top-mobile: 76px;
+$chrome-bottom-mobile: 96px;

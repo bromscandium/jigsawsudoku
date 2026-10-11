@@ -5,6 +5,7 @@
 /dataSources.local.xml
 .idea
 /dist
+/frontend/dist
 /tmp
 /out-tsc
 /bazel-out

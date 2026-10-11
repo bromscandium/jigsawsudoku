@@ -1,4 +1,5 @@
 @use '../../../../../styles/variables' as *;
+@use '../../../../../styles/breakpoints' as *;
 
 .game-board-container {
     display: flex;
@@ -72,5 +73,46 @@
     .cell span {
         transition: all $time-animation ease;
         font-weight: 900;
+    }
+}
+
+// Cells shrink to fit the viewport; --board-size is bound in the template.
+.game-board-container .grid {
+    --cell: min(70px, calc((100vw - 32px) / var(--board-size, 9)), calc((100vh - 260px) / var(--board-size, 9)));
+
+    .cell {
+        width: var(--cell);
+        height: var(--cell);
+        font-size: calc(var(--cell) * 0.4);
+    }
+}
+
+@include compact {
+    .game-board-container {
+        height: auto;
+        min-height: 100vh;
+        width: 100%;
+        padding: $chrome-top 16px $chrome-bottom;
+
+        .controls {
+            position: static;
+            flex-direction: row;
+            gap: 24px;
+            margin-bottom: 16px;
+
+            h3 {
+                font-size: 28px !important;
+            }
+        }
+    }
+}
+
+@include below($bp-mobile) {
+    .game-board-container {
+        padding: $chrome-top-mobile 16px $chrome-bottom-mobile;
+
+        .controls h3 {
+            font-size: 20px !important;
+        }
     }
 }

@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: jigsaw
+      POSTGRES_PASSWORD: jigsaw
+      POSTGRES_DB: jigsawsudoku
+    ports:
+      - "5436:5432"
+    volumes:
+      - jigsaw-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jigsaw -d jigsawsudoku"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+volumes:
+  jigsaw-db:

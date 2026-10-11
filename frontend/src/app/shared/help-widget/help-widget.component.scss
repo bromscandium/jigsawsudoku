@@ -1,4 +1,5 @@
 @use '../../../styles/variables' as *;
+@use '../../../styles/breakpoints' as *;
 
 .help-widget-container {
     position: fixed;
@@ -99,5 +100,43 @@
 
     &:hover .help-icon {
         box-shadow: none;
+    }
+}
+
+@include below($bp-tablet) {
+    .help-widget-container .help-content {
+        position: fixed;
+        top: auto;
+        left: auto;
+        right: 30px;
+        bottom: 120px;
+        width: min(550px, calc(100vw - 60px));
+        max-height: calc(100vh - 160px);
+        overflow-y: auto;
+        transform: translateY(20px);
+    }
+}
+
+@include below($bp-mobile) {
+    .help-widget-container {
+        right: 16px;
+        bottom: 16px;
+
+        .help-icon {
+            width: 56px;
+            height: 56px;
+            font-size: 32px;
+        }
+
+        .help-content {
+            right: 16px;
+            bottom: 84px;
+            width: calc(100vw - 32px);
+            max-height: calc(100vh - 110px);
+
+            .name-content h2 {
+                font-size: 26px;
+            }
+        }
     }
 }

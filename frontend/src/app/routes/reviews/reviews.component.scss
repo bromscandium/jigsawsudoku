@@ -1,4 +1,5 @@
 @use '../../../styles/variables' as *;
+@use '../../../styles/breakpoints' as *;
 
 .reviews-container {
     position: fixed;
@@ -280,6 +281,71 @@
             align-items: center;
             justify-content: center;
             line-height: 1;
+        }
+    }
+}
+
+@include compact {
+    .reviews-container {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: calc(100% - 32px);
+        max-width: 950px;
+        height: auto;
+        margin: $chrome-top auto $chrome-bottom;
+        padding: 24px;
+
+        .all-comments {
+            min-height: 0;
+        }
+    }
+}
+
+@include below($bp-mobile) {
+    .reviews-container {
+        margin: $chrome-top-mobile auto $chrome-bottom-mobile;
+        padding: 16px 12px;
+
+        .review-sort button {
+            min-width: 0;
+            padding: 14px 4px;
+            font-size: 14px;
+        }
+
+        .review-card {
+            max-height: none;
+            padding: 16px;
+
+            .comment {
+                font-size: 16px;
+            }
+        }
+
+        .pagination {
+            button,
+            span {
+                font-size: 30px;
+            }
+        }
+
+        .your-review {
+            .button-wrapper button,
+            .edit-wrapper > button {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .edit-wrapper .rating-select {
+                width: 100%;
+                justify-content: center;
+
+                button {
+                    flex: 1;
+                    max-width: none !important;
+                }
+            }
         }
     }
 }

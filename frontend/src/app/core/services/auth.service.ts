@@ -1,9 +1,9 @@
+import {environment} from '../../../environments/environment';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {SoundService} from './sound.service';
-import {environment} from '../../../environment/environment';
 
 @Injectable({providedIn: 'root'})
 export class AuthService {

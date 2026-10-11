@@ -1,4 +1,5 @@
 @use '../../../styles/variables' as *;
+@use '../../../styles/breakpoints' as *;
 
 .profile-widget-container {
     position: fixed;
@@ -47,5 +48,20 @@
 
     button:hover {
         background-color: $yellow;
+    }
+}
+
+@include below($bp-mobile) {
+    .profile-widget-container {
+        right: 16px;
+        bottom: 148px;
+
+        .profile-content {
+            transform: translate(-294px, -40px);
+        }
+
+        &:hover .profile-content {
+            transform: translate(-294px, -88px);
+        }
     }
 }
