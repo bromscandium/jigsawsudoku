@@ -170,6 +170,15 @@ body {
     }
 }
 
+// <html> paints the page background wherever <body> doesn't reach (e.g. screens whose content is position:
+// fixed), so it needs the dark gradient too, not just <body>.
+html.dark-mode {
+    background: $main-bg-dark;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+    animation: gradientShift $gradient-animation-duration linear infinite alternate;
+}
+
 html.dark-mode body {
     background: $main-bg-dark;
     background-size: 400% 400%;
